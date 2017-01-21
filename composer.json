@@ -1,11 +1,17 @@
 {
 	"name": "santoshbaggam/mini-framework",
-    "description": "A mini framework by Santosh Baggam.",
-    "keywords": ["framework", "mini", "santosh", "baggam", "santoshbaggam"],
+    "description": "A mini PHP framework by Santosh Baggam.",
+    "keywords": ["php", "framework", "mini", "santosh", "baggam", "santoshbaggam"],
     "license": "MIT",
     "type": "project",
+    "authors": [
+        {
+            "name": "Santosh Baggam",
+            "email": "santosh_baggam@yahoo.co.in"
+        }
+    ],
     "require": {
-        "php": ">=5.6.4"
+        "php": "~7.0"
     },
     "require-dev": {
     },
@@ -13,10 +19,9 @@
         "classmap": [
         ],
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "src/"
         },
         "files": [
-        	"bootstrap.php"
         ]
     }
 }
