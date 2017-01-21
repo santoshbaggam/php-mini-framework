@@ -19,7 +19,7 @@
         "classmap": [
         ],
         "psr-4": {
-            "App\\": "src/"
+            "App\\": "app/"
         },
         "files": [
         ]
