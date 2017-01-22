@@ -16,4 +16,3 @@ $app->bind('db', [new App\Core\Database\Connection, 'make']);
 $app->bind('foo', function () {
 	return 'bar';
 });
-

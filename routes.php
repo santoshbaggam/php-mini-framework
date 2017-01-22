@@ -1,12 +1,15 @@
 <?php
 
-# returns view
-// $app->get('/', ['PagesController', 'home']);
+# return view
+$app->get('/', ['PagesController', 'home']);
 
-# returns json
-// $app->post('users', ['UsersController', 'index']);
+# return json
+$app->post('users', ['UsersController', 'index']);
+$app->get('users', ['UsersController', 'index']);
 
 # return plain text
-$app->get('status', function () {
-	echo '<pre> I\'m OK </pre>';
+$app->get('status', function ($app) {
+	$data = '<pre> I\'m OK </pre>';
+
+	return $app->response()->text($data);
 });

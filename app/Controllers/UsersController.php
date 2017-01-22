@@ -2,10 +2,21 @@
 
 namespace App\Controllers;
 
-class UsersController
+class UsersController extends Controller
 {
 	public function index()
 	{
-		return 'showing all the users';
+		$users = [
+			[
+				'name' => 'Santosh',
+				'age'  => 24
+			],
+			[
+				'name' => 'John',
+				'age'  => 40
+			]
+		];
+
+		return $this->app()->response()->json($users);
 	}
 }

@@ -1,7 +1,7 @@
 {
 	"name": "santoshbaggam/mini-framework",
-    "description": "A mini PHP framework by Santosh Baggam.",
-    "keywords": ["php", "framework", "mini", "santosh", "baggam", "santoshbaggam"],
+    "description": "A mini PHP framework from scratch.",
+    "keywords": ["php", "mini", "framework"],
     "license": "MIT",
     "type": "project",
     "authors": [
@@ -22,6 +22,7 @@
             "App\\": "app/"
         },
         "files": [
+
         ]
     }
 }
