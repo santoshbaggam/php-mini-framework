@@ -39,6 +39,8 @@ class App
 
         $router->setPath($_SERVER['PATH_INFO'] ?? '/');
 
+        $router->setAction($_SERVER['REQUEST_METHOD'] ?? '');
+
         $handler = $router->getHandler();
 
         $response = $this->route($handler);

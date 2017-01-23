@@ -11,6 +11,8 @@ class Router
 {
     protected $path;
 
+    protected $action;
+
     protected $routes = [];
 
     protected $methods = [];
@@ -23,10 +25,13 @@ class Router
     		$uri = '/' . $uri;
     	}
 
-		$this->routes[$uri] = $handler;
-
-        $this->methods[$uri] = $method;
+		$this->routes[$uri][$method] = $handler;
 	}
+
+    public function setAction($action)
+    {
+        $this->action = $action;
+    }
 
     public function setPath($path)
     {
@@ -39,10 +44,10 @@ class Router
             throw new RouteNotFoundException;
         }
 
-        if ($_SERVER['REQUEST_METHOD'] != $this->methods[$this->path]) {
+        if ( ! isset($this->routes[$this->path][$this->action])) {
             throw new MethodNotAllowedException;
         }
 
-		return $this->routes[$this->path];
+		return $this->routes[$this->path][$this->action];
 	}
 }
