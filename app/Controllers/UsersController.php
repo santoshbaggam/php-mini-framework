@@ -19,4 +19,9 @@ class UsersController extends Controller
 
 		return $this->app()->response()->json($users);
 	}
+
+	public function store()
+	{
+		return 'storing';
+	}
 }

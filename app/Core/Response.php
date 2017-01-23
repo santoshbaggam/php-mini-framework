@@ -10,9 +10,15 @@ class Response
 
 	protected $headers = [];
 
-	public function view($view, $data, $status = 200)
+	public function view(string $view, $data)
 	{
+		extract($data);
 
+		$body = require __DIR__ . "/../Views/{$view}.view.php";
+
+		$this->setBody($body);
+
+		return $this;
 	}
 
 	public function json(array $data)

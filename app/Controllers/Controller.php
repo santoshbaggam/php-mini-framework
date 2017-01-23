@@ -8,6 +8,8 @@ abstract class Controller
 {
 	private $app;
 
+	private $view;
+
 	public function __construct(App $app)
 	{
 		$this->app = $app;

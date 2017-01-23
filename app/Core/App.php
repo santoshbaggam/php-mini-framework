@@ -33,11 +33,6 @@ class App
         $this->container->router->addRoute($uri, $handler, 'POST');
     }
 
-    public function response()
-    {
-        return $this->container->response;
-    }
-
     public function run()
     {
         $router = $this->container->router;
@@ -48,7 +43,7 @@ class App
 
         $response = $this->route($handler);
 
-        return $this->respond($response);
+        echo $this->respond($response);
     }
 
     public function respond($response)
@@ -58,7 +53,7 @@ class App
             $response = $this->container->response->text($response); 
         }
 
-        echo $response->getBody();
+        return $response->getBody();
     }
 
     public function route($handler)
@@ -79,6 +74,16 @@ class App
 	{
 		$this->container[$key] = $callable;
 	}
+
+    public function response()
+    {
+        return $this->container->response;
+    }
+
+    public function view(string $view, $data)
+    {
+        return $this->container->response->view($view, $data);
+    }
 
     public function __get($property)
     {
