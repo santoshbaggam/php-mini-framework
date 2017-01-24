@@ -2,26 +2,21 @@
 
 namespace App\Controllers;
 
+use App\Models\User;
+
 class UsersController extends Controller
 {
 	public function index()
 	{
-		$users = [
-			[
-				'name' => 'Santosh',
-				'age'  => 24
-			],
-			[
-				'name' => 'John',
-				'age'  => 40
-			]
-		];
+		$query = $this->app()->database;
+
+		$users = $query->on(User::class)->selectAll();
 
 		return $this->app()->response()->json($users);
 	}
 
 	public function store()
 	{
-		return 'storing';
+		return 'storing the user..';
 	}
 }
