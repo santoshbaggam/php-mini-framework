@@ -22,19 +22,28 @@ $db = $app->databaseConnection;
 
 ### Dependency Injection
 
-Within `app/Core/App.php`
+Checkout `app/Core/App.php` and `app/Core/Database/Connection.php` to understand that the container object is automatically injected into its bindings. Here the binding is `databaseConnection`.
 
 ```php
-public function __construct()
+class Connection
 {
-	$this->container = new Container([
-        'router' => function () {
-            return new Router;
-        },
-        'response' => function () {
-            return new Response;
-        }
-    ]);
+	/*
+	 * App\Core\Container $container is injected 
+	 * automatically by $app (bind)
+	 */
+    public function make($container)
+    {
+    	//
+    }
+}
+```
+
+The following code within `app/Core/Database/QueryBuilder.php` shows that we're injecting the PDO dependency into the `Connection` class.
+
+```php
+public function __construct(PDO $connection)
+{
+    $this->connection = $connection;
 }
 ```
 
