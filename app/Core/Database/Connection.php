@@ -8,7 +8,7 @@ use PDOException;
 class Connection
 {
 	/*
-	 * App\Core\Container $container is passed 
+	 * App\Core\Container $container is injected 
 	 * automatically by $app (bind)
 	 */
     public function make($container)
